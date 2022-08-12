@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Categories = () => <div>Welcome to the categories</div>;
+const Categories = () => <button type="button">Check status</button>;
 
 export default Categories;
