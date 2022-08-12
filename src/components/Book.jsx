@@ -6,9 +6,11 @@ const Book = (props) => {
   } = props;
   console.log(id, title, author, props);
   return (
-    <div>
-      The book
-    </div>
+    <>
+      <p>{title}</p>
+      <p>{author}</p>
+      <button type="button">Delete</button>
+    </>
   );
 };
 
