@@ -1,22 +1,23 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const links = [
-        {
-            id: 1,
-            path: '/',
-            text: 'Books',
-          },
-        {
-            id: 2,
-            path: '/categories',
-            text: 'Categories',
-          },
-    ]
+  const links = [
+    {
+      id: 1,
+      path: '/',
+      text: 'Books',
+    },
+    {
+      id: 2,
+      path: '/categories',
+      text: 'Categories',
+    },
+  ];
   return (
     <nav>
       <ul>
-      {links.map((link) => (
+        {links.map((link) => (
           <li key={link.id}>
             <NavLink className="navlink" exact="true" to={link.path}>
               {link.text}
@@ -25,7 +26,7 @@ const Navbar = () => {
         ))}
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

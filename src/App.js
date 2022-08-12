@@ -1,10 +1,15 @@
 import React from 'react';
+import {Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome</h1>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact='true' element={} />
+      </Routes>
+    </>
   );
 }
 
