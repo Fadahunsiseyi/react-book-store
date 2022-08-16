@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { addBook } from '../redux/books/books';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/books';
 
 const AddForm = () => {
+  const dispatch = useDispatch();
+  console.log(dispatch);
   const [form, setForm] = useState({ title: '', author: '' });
   const handleChange = (e) => {
     e.preventDefault();
@@ -10,12 +12,24 @@ const AddForm = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (form.title.trim() && form.author.trim()) {
+      const data = {
+        id: Date.now(),
+        title: form.title,
+        author: form.author,
+      };
+      console.log(data);
+      dispatch(addBook(data));
+      setForm({ title: '', author: '' });
+    }
   };
   return (
     <>
       <h1>ADD BOOK</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter book title"
@@ -27,6 +41,7 @@ const AddForm = () => {
           type="text"
           placeholder="Enter book Author"
           name="author"
+          value={form.author}
           onChange={handleChange}
         />
         <button type="submit">Add Book</button>
