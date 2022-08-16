@@ -1,13 +1,38 @@
-import React,{useState} from 'react';
-import { addBook } from '../redux/books/books';
-import {useDispatch} from 'react-redux'
+import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { addBook } from '../redux/books/books';
 
-const AddForm = () => (
-  <form>
-    <input type="text" placeholder="Title" name="title" />
-    <input type="text" placeholder="Author" name="author" />
-    <button type="submit">Add Book</button>
-  </form>
-);
+const AddForm = () => {
+  const [form, setForm] = useState({ title: '', author: '' });
+  const handleChange = (e) => {
+    e.preventDefault();
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+    console.log(e.target.value);
+  };
+  return (
+    <>
+      <h1>ADD BOOK</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Enter book title"
+          name="title"
+          value={form.title}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Enter book Author"
+          name="author"
+          onChange={handleChange}
+        />
+        <button type="submit">Add Book</button>
+      </form>
+    </>
+  );
+};
 
 export default AddForm;
