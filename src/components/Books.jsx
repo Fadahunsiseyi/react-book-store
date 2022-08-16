@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import AddForm from './AddForm';
 import Book from './Book';
 
 const Books = () => {
+  const book = useSelector((state) => console.log(state.booksReducer));
+  console.log(book);
   const books = [
     {
       id: 1,

@@ -4,7 +4,6 @@ import { addBook } from '../redux/books/books';
 
 const AddForm = () => {
   const dispatch = useDispatch();
-  console.log(dispatch);
   const [form, setForm] = useState({ title: '', author: '' });
   const handleChange = (e) => {
     e.preventDefault();
@@ -21,7 +20,6 @@ const AddForm = () => {
         title: form.title,
         author: form.author,
       };
-      console.log(data);
       dispatch(addBook(data));
       setForm({ title: '', author: '' });
     }
