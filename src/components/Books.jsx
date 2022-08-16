@@ -5,7 +5,6 @@ import Book from './Book';
 
 const Books = () => {
   const books = useSelector((state) => state.booksReducer);
-  // console.log(books);
   return (
     <>
       {books.map((book) => (
