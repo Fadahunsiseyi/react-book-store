@@ -12,10 +12,10 @@ const fetchBooks = async (dispatch) => {
     dispatch({ type: FETCH_BOOK, payload: result.data });
 }
 
-export const addBook = (book) => ({
-  type: ADD_BOOK,
-  payload: book,
-});
+export const addBook = (book) => async (dispatch) => {
+    axios.post(BOOK_API,book);
+    dispatch(fetchBooks())
+}
 
 export const removeBook = (id) => ({
   type: REMOVE_BOOK,
