@@ -2,6 +2,8 @@ const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
+const BOOK_API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+
 export const addBook = (book) => ({
   type: ADD_BOOK,
   payload: book,
