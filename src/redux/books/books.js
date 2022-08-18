@@ -13,14 +13,14 @@ const fetchBooks = async (dispatch) => {
 }
 
 export const addBook = (book) => async (dispatch) => {
-    axios.post(BOOK_API,book);
+   await axios.post(BOOK_API, book);
     dispatch(fetchBooks())
 }
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  payload: id,
-});
+export const removeBook = (id) => async (dispatch) => {
+    await axios.delete(`${BOOK_API}/${id}`);
+    dispatch(fetchBooks());
+}
 
 const initialState = [];
 
