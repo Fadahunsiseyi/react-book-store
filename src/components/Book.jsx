@@ -7,7 +7,7 @@ const Book = (props) => {
   const dispatch = useDispatch();
   const { bookProps } = props;
   const handleRemove = () => {
-    dispatch(removeBook(bookProps.id));
+    dispatch(removeBook(bookProps.item_id));
   };
   return (
     <>

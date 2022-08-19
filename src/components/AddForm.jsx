@@ -12,13 +12,15 @@ const AddForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (form.title.trim() && form.author.trim()) {
       const data = {
-        id: Date.now(),
+        item_id: Date.now(),
         title: form.title,
         author: form.author,
+        category: '',
       };
       dispatch(addBook(data));
       setForm({ title: '', author: '' });
