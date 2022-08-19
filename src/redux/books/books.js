@@ -18,6 +18,11 @@ export default (state = initialState, action) => {
         ...state,
         booksLists: [...action.payload],
       };
+    case `${ADD_BOOK}/fulfilled`:
+      return {
+        ...state,
+        booksLists: [...state.booksLists, action.payload],
+      };
     default:
       return state;
   }
