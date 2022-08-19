@@ -23,6 +23,11 @@ export default (state = initialState, action) => {
         ...state,
         booksLists: [...state.booksLists, action.payload],
       };
+    case `${REMOVE_BOOK}/fulfilled`:
+      return {
+        ...state,
+        booksLists: state.booksLists.filter((book) => book.item_id !== action.payload),
+      };
     default:
       return state;
   }
