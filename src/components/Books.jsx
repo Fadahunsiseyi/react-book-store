@@ -6,15 +6,15 @@ import Book from './Book';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.booksReducer);
-  const bookId = Object.keys(books);
+  const books = useSelector((state) => state.booksReducer.booksLists);
+  // console.log(books, 'can be used');
   useEffect(() => {
     dispatch(fetchBooks());
   }, []);
   return (
     <>
-      {bookId.map((id) => (
-        <Book key={id} id={id} bookProps={books[id]} />
+      {books.map((book) => (
+        <Book key={book.item_id} bookProps={book} />
       ))}
       <AddForm />
     </>

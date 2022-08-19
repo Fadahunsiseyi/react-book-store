@@ -5,14 +5,15 @@ import { removeBook } from '../redux/books/books';
 
 const Book = (props) => {
   const dispatch = useDispatch();
-  const { bookProps, id } = props;
+  const { bookProps } = props;
+  // console.log(bookProps);
   const handleRemove = () => {
-    dispatch(removeBook(id));
+    dispatch(removeBook(bookProps.item_id));
   };
   return (
     <>
-      <p>{bookProps[0].title}</p>
-      <p>{bookProps[0].author}</p>
+      <p>{bookProps.title}</p>
+      <p>{bookProps.author}</p>
       <button type="button" onClick={handleRemove}>
         Delete
       </button>
@@ -22,8 +23,7 @@ const Book = (props) => {
 
 Book.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  bookProps: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired,
+  bookProps: PropTypes.object.isRequired,
 };
 
 export default Book;

@@ -33,17 +33,47 @@ export default (state = initialState, action) => {
   }
 };
 
-export const fetchBooks = () => async (dispatch) => {
-  const result = await axios.get(BOOK_API);
-  dispatch({ type: FETCH_BOOK, payload: result.data });
+const convertKeys = (dataKey) => {
+  // console.log(dataKey);
+  const data = Object.keys(dataKey).map((id) => ({
+    item_id: id,
+    title: dataKey[id][0].title,
+    author: dataKey[id][0].author,
+    category: dataKey[id][0].category,
+  }));
+  console.log(data, 'i am supposed to be here');
+  return data;
 };
 
-export const addBook = (book) => async (dispatch) => {
+// export const fetchBooks = () => async (dispatch) => {
+//   const result = await axios.get(BOOK_API);
+//   dispatch({ type: FETCH_BOOK, payload: result.data });
+// };
+
+export const fetchBooks = createAsyncThunk(FETCH_BOOK, async () => {
+  const result = await fetch(BOOK_API);
+  console.log(result, 'here we go');
+  const data = await result.json();
+  const convertKey = convertKeys(data);
+  return convertKey;
+});
+
+// export const addBook = (book) => async (dispatch) => {
+//   await axios.post(BOOK_API, book);
+//   dispatch(fetchBooks());
+// };
+
+export const addBook = createAsyncThunk(ADD_BOOK, async (book) => {
   await axios.post(BOOK_API, book);
-  dispatch(fetchBooks());
-};
+  return book;
+});
 
-export const removeBook = (id) => async (dispatch) => {
+// export const removeBook = (id) => async (dispatch) => {
+//   await axios.delete(`${BOOK_API}/${id}`);
+//   dispatch(fetchBooks());
+// };
+
+export const removeBook = createAsyncThunk(REMOVE_BOOK, async (id) => {
   await axios.delete(`${BOOK_API}/${id}`);
-  dispatch(fetchBooks());
-};
+  return id;
+});
