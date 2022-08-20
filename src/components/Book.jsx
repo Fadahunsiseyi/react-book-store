@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 import '../styles/book.css';
 import ProgressBar from './ProgressBar';
+import Chapter from './Chapter';
 
 const Book = (props) => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Book = (props) => {
         </div>
         <div className="chapter">
           <ProgressBar limit={limit} />
+          <Chapter />
         </div>
       </div>
     </div>

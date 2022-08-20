@@ -6,7 +6,6 @@ const ProgressBar = (props) => {
   const [count, setCount] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
   const [leftRotationValue, setLeftRotation] = useState(0);
-  const [rightRotationValue, setRightRotation] = useState(0);
   const { limit } = props;
 
   const updateProgress = () => {
@@ -15,9 +14,7 @@ const ProgressBar = (props) => {
       setCount((count) => count + 1);
       innerCount += 1;
       if (innerCount <= 50) {
-        setLeftRotation((leftRotationValue) => leftRotationValue + 3.6);
-      } else {
-        setRightRotation((rightRotationValue) => rightRotationValue + 3.6);
+        setLeftRotation((leftRotationValue) => leftRotationValue + 3);
       }
     }, 20);
     setIntervalId(id);
@@ -33,7 +30,6 @@ const ProgressBar = (props) => {
   };
 
   const rightRotation = {
-    transform: `rotate(${rightRotationValue}deg)`,
     transition: 'all 0.2s ease-in',
   };
 
