@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Todo Application
+# Book Store Application
 
 > This is an application that stores lists of books
 
