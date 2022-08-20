@@ -14,9 +14,9 @@ const Book = (props) => {
     <div className="book">
       <div className="book-container">
         <div className="book-info">
-          <p>{bookProps.category}</p>
-          <h2>{bookProps.title}</h2>
-          <h3>{bookProps.author}</h3>
+          <p className="cate">{bookProps.category}</p>
+          <h2 className="title">{bookProps.title}</h2>
+          <h3 className="author">{bookProps.author}</h3>
           <div className="btn-control">
             <button type="button">Comment</button>
             <div className="divider" />

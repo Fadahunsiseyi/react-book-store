@@ -28,7 +28,7 @@ const AddForm = () => {
     }
   };
   return (
-    <>
+    <div className="add-book">
       <h1>ADD BOOK</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -37,6 +37,7 @@ const AddForm = () => {
           name="title"
           value={form.title}
           onChange={handleChange}
+          required
         />
         <input
           type="text"
@@ -44,10 +45,26 @@ const AddForm = () => {
           name="author"
           value={form.author}
           onChange={handleChange}
+          required
         />
-        <button type="submit">Add Book</button>
+        <label htmlFor="category-select">
+          <select
+            onChange={handleChange}
+            id="category-select"
+            name="category"
+            value={form.category}
+            required
+          >
+            <option disabled> Book </option>
+            <option value="mathematics"> Mathematics </option>
+            <option value="physics"> Physics </option>
+            <option value="chemistry"> Chemistry </option>
+            <option value="english"> English </option>
+          </select>
+        </label>
+        <button type="submit" className="add-btn">Add Book</button>
       </form>
-    </>
+    </div>
   );
 };
 
