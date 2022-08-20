@@ -7,7 +7,7 @@
 
 ## Live Demo
 
-[Live demo](Live soon)
+[Live demo](https://celadon-sable-dd3d85.netlify.app/)
 ## Built With
 
 - HTML
