@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 import '../styles/book.css';
+import ProgressBar from './ProgressBar';
 
 const Book = (props) => {
   const dispatch = useDispatch();
+  const limit = Math.floor(Math.random() * 100);
   const { bookProps } = props;
   const handleRemove = () => {
     dispatch(removeBook(bookProps.item_id));
@@ -27,13 +29,10 @@ const Book = (props) => {
             <button type="button">Edit</button>
           </div>
         </div>
-        <div className="book-chapter"> </div>
+        <div className="chapter">
+          <ProgressBar limit={limit} />
+        </div>
       </div>
-      {/* <p>{bookProps.title}</p>
-      <p>{bookProps.author}</p>
-      <button type="button" onClick={handleRemove}>
-        Delete
-      </button> */}
     </div>
   );
 };
