@@ -1,0 +1,24 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.categories button {
+  border: none;
+  background: #0290ff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 25rem;
+  height: 7rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.categories h5 {
+  font-size: 4rem;
+}

@@ -11,14 +11,14 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
 
-html body {
-  background: #fafafa;
-  width: 100%;
-}
+  body {
+    background: #fafafa;
+    width: 100%;
 
-html body .App {
-  width: 100%;
-  position: relative;
+    .App {
+      width: 100%;
+      position: relative;
+    }
+  }
 }
